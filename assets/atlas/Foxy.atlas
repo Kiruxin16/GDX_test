@@ -1,0 +1,97 @@
+
+Foxy.png
+size: 1024, 256
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+FoxRun
+  rotate: false
+  xy: 2, 170
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 11
+FoxRun
+  rotate: false
+  xy: 2, 86
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 5
+FoxRun
+  rotate: false
+  xy: 204, 170
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 10
+FoxRun
+  rotate: false
+  xy: 2, 2
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 2
+FoxRun
+  rotate: false
+  xy: 204, 86
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 13
+FoxRun
+  rotate: false
+  xy: 406, 170
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 7
+FoxRun
+  rotate: false
+  xy: 204, 2
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 12
+FoxRun
+  rotate: false
+  xy: 406, 86
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 4
+FoxRun
+  rotate: false
+  xy: 608, 170
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 9
+FoxRun
+  rotate: false
+  xy: 406, 2
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 1
+FoxRun
+  rotate: false
+  xy: 608, 86
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 6
+FoxRun
+  rotate: false
+  xy: 810, 170
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 3
+FoxRun
+  rotate: false
+  xy: 608, 2
+  size: 200, 82
+  orig: 200, 82
+  offset: 0, 0
+  index: 8
