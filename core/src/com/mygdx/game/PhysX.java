@@ -60,10 +60,13 @@ public class PhysX {
         fixtureDef.friction = 1;
         fixtureDef.density = 0f;
         fixtureDef.restitution = 0.01f;
-
         Body body = world.createBody(def);
         if (recMO.getName() != null) {
             body.createFixture(fixtureDef).setUserData(recMO.getName());
+            if(recMO.getName().equals("foxBox")){
+                polygonShape.setAsBox(rect.width / 120, rect.height / 120,new Vector2(0,-rect.height/20),0);
+                body.createFixture(fixtureDef).setSensor(true);
+            }
         }
         else{
             body.createFixture(fixtureDef).setUserData("ground");
