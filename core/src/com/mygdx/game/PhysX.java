@@ -11,51 +11,63 @@ public class PhysX {
     private final Box2DDebugRenderer debugRenderer;
 
 
-    public PhysX() {
-        world = new World(new Vector2(0,-9.81f),true);
+    public PhysX(MyContList mcl) {
+        world = new World(new Vector2(0, -9.81f), true);
         this.debugRenderer = new Box2DDebugRenderer();
+        world.setContactListener(mcl);
     }
 
-    public void  setGravity(Vector2 gravity){
+    public void setGravity(Vector2 gravity) {
         world.setGravity(gravity);
     }
 
-    public void dispose(){
+    public void dispose() {
         world.dispose();
         debugRenderer.dispose();
 
     }
-    public void step(){
-        world.step(1/60f,3,3);
+
+    public void step() {
+        world.step(1 / 60f, 3, 3);
     }
-    public void debugDraw(OrthographicCamera camera){
-        debugRenderer.render(world,camera.combined);
+
+    public void debugDraw(OrthographicCamera camera) {
+        debugRenderer.render(world, camera.combined);
     }
 
 
-    public Body addObject(RectangleMapObject recMO){
+    public Body addObject(RectangleMapObject recMO) {
         Rectangle rect = recMO.getRectangle();
         String type = (String) recMO.getProperties().get("BodyType");
         BodyDef def = new BodyDef();
         FixtureDef fixtureDef = new FixtureDef();
         PolygonShape polygonShape = new PolygonShape();
 
-        switch (type){
-            case "DynamicBody":def.type = BodyDef.BodyType.DynamicBody;break;
-            default:def.type = BodyDef.BodyType.StaticBody;break;
+        switch (type) {
+            case "DynamicBody":
+                def.type = BodyDef.BodyType.DynamicBody;
+                break;
+            default:
+                def.type = BodyDef.BodyType.StaticBody;
+                break;
         }
 
 
-        def.position.set((rect.x +rect.width/2)/10,(rect.y+rect.height/2)/10);
-        def.gravityScale =10;
-        polygonShape.setAsBox(rect.width/20,rect.height/20);
-        fixtureDef.shape =polygonShape;
+        def.position.set((rect.x + rect.width / 2) / 10, (rect.y + rect.height / 2) / 10);
+        def.gravityScale = 10;
+        polygonShape.setAsBox(rect.width / 20, rect.height / 20);
+        fixtureDef.shape = polygonShape;
         fixtureDef.friction = 1;
-        fixtureDef.density=0f;
-        fixtureDef.restitution=0.01f;
+        fixtureDef.density = 0f;
+        fixtureDef.restitution = 0.01f;
 
-        Body body =world.createBody(def);
-        body.createFixture(fixtureDef).setUserData("ground");
+        Body body = world.createBody(def);
+        if (recMO.getName() != null) {
+            body.createFixture(fixtureDef).setUserData(recMO.getName());
+        }
+        else{
+            body.createFixture(fixtureDef).setUserData("ground");
+        }
 
         polygonShape.dispose();
         return body;
