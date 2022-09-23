@@ -20,6 +20,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.Animatic;
+import com.mygdx.game.MyContList;
 import com.mygdx.game.PhysX;
 
 
@@ -47,6 +48,7 @@ public class GameScreen implements Screen {
     private float rot;
     private final int[] grounds;
     private final int[] forward;
+    private final MyContList myContList = new MyContList();//костыль
 
 
     public GameScreen(Game game) {
@@ -59,7 +61,7 @@ public class GameScreen implements Screen {
         mapRenderer = new OrthogonalTiledMapRenderer(map);
         //map.getLayers().get("refPoints").getObjects().getByType(RectangleMapObject.class);
         RectangleMapObject tmp = (RectangleMapObject) map.getLayers().get("cam1").getObjects().get("camera");
-        physX=new PhysX();
+        physX=new PhysX(myContList);
 
         solidGround = map.getLayers().get("refPoints").getObjects().getByType(RectangleMapObject.class);
         for (RectangleMapObject r:solidGround){
@@ -114,8 +116,10 @@ public class GameScreen implements Screen {
 
         /**
          * buttons*/
+        float multiplier= myContList.changeSpeed();
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            body.setLinearVelocity(new Vector2(-36,body.getLinearVelocity().y));
+
+            body.setLinearVelocity(new Vector2(-36*multiplier,body.getLinearVelocity().y));
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
@@ -123,7 +127,7 @@ public class GameScreen implements Screen {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            body.setLinearVelocity(new Vector2(36,body.getLinearVelocity().y));
+            body.setLinearVelocity(new Vector2(36*multiplier,body.getLinearVelocity().y));
         }
 
         if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
@@ -139,7 +143,7 @@ public class GameScreen implements Screen {
         }
 
 
-        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)){
+        if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)&&myContList.isAllowJump()){
             body.applyForce(new Vector2(0f,2500f),body.getWorldCenter(),true);
         }
 

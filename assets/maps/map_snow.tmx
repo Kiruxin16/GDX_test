@@ -3,19 +3,19 @@
  <tileset firstgid="1" source="../tilesets/Map_Snow.tsx"/>
  <tileset firstgid="16" source="../tilesets/Map_Snow2.tsx"/>
  <objectgroup id="2" name="refPoints">
-  <object id="7" x="0.666667" y="552.667" width="493.333" height="118.667">
+  <object id="7" name="Ron" x="0.666667" y="552.667" width="493.333" height="118.667">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="8" x="493.333" y="613" width="259.333" height="57.3333">
+  <object id="8" name="Snowdrift" x="493.333" y="613" width="259.333" height="57.3333">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="9" x="754" y="482.667" width="829" height="188.333">
+  <object id="9" x="754" y="492" width="829" height="179">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="GravityScale" type="float" value="1"/>
@@ -27,13 +27,13 @@
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="15" x="1234.33" y="417.667" width="288" height="64">
+  <object id="15" x="1233.66" y="427.667" width="288" height="64">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="16" x="1297.67" y="354" width="160" height="64">
+  <object id="16" x="1297" y="362" width="160" height="64">
    <properties>
     <property name="BodyType" value="StaticBody"/>
     <property name="GravityScale" type="float" value="1"/>

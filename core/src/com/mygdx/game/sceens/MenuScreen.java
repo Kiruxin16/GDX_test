@@ -4,11 +4,14 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.ScreenUtils;
+import com.mygdx.game.MyContList;
 
 import java.awt.*;
 
@@ -20,6 +23,10 @@ public class MenuScreen implements Screen {
 
     private Rectangle startRect;
     private ShapeRenderer shapeRenderer;
+    private final Music music;
+    private final Sound sound;
+
+
 
     public MenuScreen(Game game) {
         this.game = game;
@@ -28,6 +35,13 @@ public class MenuScreen implements Screen {
 
         startRect = new Rectangle(0,0,texture.getWidth(),texture.getHeight());
         shapeRenderer  =new ShapeRenderer();
+
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/Ori and the Blind Forest - Main Theme.mp3"));
+        music.setLooping(true);
+        music.setVolume(0.4f);
+        music.play();
+
+        sound =Gdx.audio.newSound(Gdx.files.internal("music/5d15220318063f8.mp3"));
 
 
 
@@ -54,8 +68,13 @@ public class MenuScreen implements Screen {
 
         if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
             if(startRect.contains(Gdx.input.getX(),Gdx.graphics.getHeight()- Gdx.input.getY())) {
+
+
                 dispose();
                 this.game.setScreen(new GameScreen(this.game));
+            }
+            else {
+                sound.play();
             }
         }
 
@@ -86,6 +105,8 @@ public class MenuScreen implements Screen {
         batch.dispose();
         texture.dispose();
         shapeRenderer.dispose();
+        music.dispose();
+        sound.dispose();
 
     }
 }
