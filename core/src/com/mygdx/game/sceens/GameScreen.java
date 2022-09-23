@@ -67,9 +67,11 @@ public class GameScreen implements Screen {
         for (RectangleMapObject r:solidGround){
             physX.addObject(r);
         }
+
         RectangleMapObject fb= (RectangleMapObject)map.getLayers().get("cam1").getObjects().get("foxBox");
         foxBox= fb.getRectangle();
         body= physX.addObject(fb);
+        body.setFixedRotation(true);
         forward =new int[1];
         forward[0]=map.getLayers().getIndex("forward");
         grounds= new int[1];

@@ -1,65 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="93" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="28">
+<map version="1.9" tiledversion="1.9.1" orientation="orthogonal" renderorder="right-down" width="93" height="25" tilewidth="32" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="45">
  <tileset firstgid="1" source="../tilesets/Map_Snow.tsx"/>
  <tileset firstgid="16" source="../tilesets/Map_Snow2.tsx"/>
  <objectgroup id="2" name="refPoints">
-  <object id="7" name="Ron" x="0.666667" y="552.667" width="493.333" height="118.667">
+  <object id="7" name="Ron" x="0.666667" y="552.667" width="482" height="118.667">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
   <object id="8" name="Snowdrift" x="493.333" y="613" width="259.333" height="57.3333">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="9" x="754" y="492" width="829" height="179">
+  <object id="9" x="766" y="492" width="805" height="179">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="13" x="1583" y="551" width="497" height="121">
+  <object id="13" x="1583" y="551" width="512.333" height="121">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="15" x="1233.66" y="427.667" width="288" height="64">
+  <object id="15" x="1242.67" y="427.667" width="264.993" height="64">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="16" x="1297" y="362" width="160" height="64">
+  <object id="16" x="1307.67" y="362" width="137.333" height="64">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="21" x="2081" y="555" width="896" height="47">
+  <object id="22" x="2108.18" y="493" width="867.818" height="61">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
-  <object id="22" x="2095" y="493" width="881" height="61">
+  <object id="23" x="2620.17" y="430" width="356.833" height="61">
    <properties>
     <property name="BodyType" value="StaticBody"/>
-    <property name="GravityScale" type="float" value="1"/>
-   </properties>
-  </object>
-  <object id="23" x="2612" y="430" width="365" height="61">
-   <properties>
-    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="1"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
   <object id="27" x="2959" y="0" width="18" height="431">
    <properties>
     <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="28" x="482.75" y="553" width="14" height="59.25">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="32" x="751" y="492.841" width="14.5" height="118.909">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="33" x="1231.44" y="427.731" width="11.1135" height="64.0301">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="37" x="1296" y="362.25" width="11.25" height="65">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="39" x="1444.75" y="362.25" width="9.875" height="63.625">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="40" x="1507.63" y="427.875" width="12.625" height="61.125">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="41" x="1570.88" y="492" width="12.75" height="58.375">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="42" x="2095.64" y="493.042" width="12.3241" height="56.5941">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
+    <property name="GravityScale" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="43" x="2608.36" y="430" width="11.6364" height="60">
+   <properties>
+    <property name="BodyType" value="StaticBody"/>
+    <property name="Friction" type="float" value="0"/>
     <property name="GravityScale" type="float" value="1"/>
    </properties>
   </object>
