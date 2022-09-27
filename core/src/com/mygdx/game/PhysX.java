@@ -57,8 +57,8 @@ public class PhysX {
         def.gravityScale = 10;
         polygonShape.setAsBox(rect.width / 20, rect.height / 20);
         fixtureDef.shape = polygonShape;
-        fixtureDef.friction = 1;
-        fixtureDef.density = 0f;
+        fixtureDef.friction = (float)recMO.getProperties().get("Friction");
+        fixtureDef.density = 0.012f;
         fixtureDef.restitution = 0.01f;
         Body body = world.createBody(def);
         if (recMO.getName() != null) {
