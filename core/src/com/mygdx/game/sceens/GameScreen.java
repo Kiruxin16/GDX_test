@@ -34,6 +34,8 @@ public class GameScreen implements Screen {
     private boolean direction;
     private float x;
     private OrthographicCamera camera;
+    private OrthographicCamera instCamera;
+
     private TiledMap map;
     private OrthogonalTiledMapRenderer mapRenderer;
 
@@ -57,11 +59,13 @@ public class GameScreen implements Screen {
         x = 50;
         animatic = new Animatic("atlas/Foxy.atlas", "FoxRun", Animation.PlayMode.LOOP);
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        instCamera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         map = new TmxMapLoader().load("maps/map_snow.tmx");
         mapRenderer = new OrthogonalTiledMapRenderer(map);
         //map.getLayers().get("refPoints").getObjects().getByType(RectangleMapObject.class);
         RectangleMapObject tmp = (RectangleMapObject) map.getLayers().get("cam1").getObjects().get("camera");
         physX=new PhysX(myContList);
+        texture= new Texture("Backstage.png");
 
         solidGround = map.getLayers().get("refPoints").getObjects().getByType(RectangleMapObject.class);
         for (RectangleMapObject r:solidGround){
@@ -72,6 +76,7 @@ public class GameScreen implements Screen {
         foxBox= fb.getRectangle();
         body= physX.addObject(fb);
         body.setFixedRotation(true);
+
         forward =new int[1];
         forward[0]=map.getLayers().getIndex("forward");
         grounds= new int[1];
@@ -95,6 +100,7 @@ public class GameScreen implements Screen {
     @Override
     public void render(float delta) {
         camera.update();
+        instCamera.update();
         ScreenUtils.clear(Color.GRAY);
         animatic.setTime(Gdx.graphics.getDeltaTime());
         // Gdx.input.getX()-animatic.getFrame().getRegionWidth()/2;
@@ -102,7 +108,7 @@ public class GameScreen implements Screen {
         //time+=Gdx.graphics.getDeltaTime();
 
         Vector2 fall=body.getLinearVelocity();
-        String str = String.format("x: %.1f y: %.1f",fall.x+0.01f,fall.y+1f);
+        String str = String.format("angle: %.1f ",body.getAngle());
         Gdx.graphics.setTitle(str);
 
 
@@ -115,6 +121,15 @@ public class GameScreen implements Screen {
             //camera.position.x += RUNSPEED;
             camera.position.set(200+(body.getPosition().x)*10-camera.viewportWidth / 2,camera.position.y,camera.position.z);
         }
+/*        if (body.getAngle()>=0.6f){
+            body.setAngularVelocity(0);
+            //body.applyForce(0,30,body.getPosition().x-foxBox.width/10,body.getPosition().y-foxBox.height/10,true);
+        }
+        if (body.getAngle()<=-0.785f){
+            body.setAngularVelocity(0);
+            //body.applyForce(0,30,body.getPosition().x+foxBox.width/10,body.getPosition().y+foxBox.height/10,true);
+            //body.applyForce(0,-30,body.getPosition().x-foxBox.width/10,body.getPosition().y-foxBox.height/10,true);
+        }*/
 
         /**
          * buttons*/
@@ -151,10 +166,18 @@ public class GameScreen implements Screen {
 
 
 
-        batch.setProjectionMatrix(camera.combined);
+
+        batch.setProjectionMatrix(instCamera.combined);
         batch.begin();
+        batch.draw(texture,0-instCamera.viewportWidth/2,0-instCamera.viewportHeight/2,Gdx.graphics.getWidth(),Gdx.graphics.getHeight());
+        //batch.draw(texture,camera.position.x-Gdx.graphics.getWidth()/2,camera.position.y-Gdx.graphics.getHeight()/2,1000,600);
+        batch.end();
+
+
         mapRenderer.setView(camera);
         mapRenderer.render(grounds);
+        batch.setProjectionMatrix(camera.combined);
+        batch.begin();
         batch.draw(animatic.getFrame(), (body.getPosition().x*10)-animatic.getFrame().getRegionWidth()/2,(body.getPosition().y*10)-animatic.getFrame().getRegionHeight()/2,
                 animatic.getFrame().getRegionWidth()/2,animatic.getFrame().getRegionHeight()/2,
                 animatic.getFrame().getRegionWidth(), animatic.getFrame().getRegionHeight(),

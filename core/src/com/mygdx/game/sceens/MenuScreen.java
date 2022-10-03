@@ -33,6 +33,7 @@ public class MenuScreen implements Screen {
         batch= new SpriteBatch();
         texture = new Texture("FoxTitle.png");
 
+
         startRect = new Rectangle(0,0,texture.getWidth(),texture.getHeight());
         shapeRenderer  =new ShapeRenderer();
 
