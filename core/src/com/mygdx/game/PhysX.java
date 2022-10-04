@@ -66,6 +66,12 @@ public class PhysX {
             if(recMO.getName().equals("foxBox")){
                 polygonShape.setAsBox(rect.width / 120, rect.height / 120,new Vector2(0,-rect.height/20),0);
                 body.createFixture(fixtureDef).setSensor(true);
+                polygonShape.setAsBox(rect.width / 120, rect.height / 20, new Vector2(rect.width/20,0),0);
+                fixtureDef.friction=0;
+                body.createFixture(fixtureDef);
+                polygonShape.setAsBox(rect.width / 120, rect.height / 20, new Vector2(-rect.width/20,0),0);
+                fixtureDef.friction=0;
+                body.createFixture(fixtureDef);
             }
         }
         else{

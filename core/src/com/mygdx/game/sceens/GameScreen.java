@@ -161,7 +161,7 @@ public class GameScreen implements Screen {
 
 
         if(Gdx.input.isKeyJustPressed(Input.Keys.SPACE)&&myContList.isAllowJump()){
-            body.applyForce(new Vector2(0f,2500f),body.getWorldCenter(),true);
+            body.applyForce(new Vector2(0f,3000f),body.getWorldCenter(),true);
         }
 
 
