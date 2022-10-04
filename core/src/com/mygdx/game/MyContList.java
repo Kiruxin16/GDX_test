@@ -24,6 +24,7 @@ public class MyContList implements ContactListener {
         if(a.getUserData()!=null && b.getUserData()!=null) {
             String tmpA =(String) a.getUserData();
             String tmpB =(String) b.getUserData();
+
             if ((tmpA.equals("foxBox")   && tmpB.equals("Snowdrift"))||
                     (tmpA.equals("Snowdrift")   && tmpB.equals("foxBox"))) {
                 speedMult =0.5f;
@@ -40,6 +41,7 @@ public class MyContList implements ContactListener {
     public void endContact(Contact contact) {
         Fixture a = contact.getFixtureA();
         Fixture b = contact.getFixtureB();
+      //  boolean isSen = b.getBody().getFixtureList().get(1).isSensor();
 
 
         if(a.getUserData()!=null && b.getUserData()!=null) {
