@@ -72,6 +72,11 @@ public class PhysX {
                 polygonShape.setAsBox(rect.width / 150, rect.height / 20.1f, new Vector2(-rect.width/20,0),0);
                 fixtureDef.friction=0;
                 body.createFixture(fixtureDef);
+                polygonShape.setAsBox(rect.width / 130, rect.height / 80f, new Vector2(rect.width/20+1,0),0);
+                Fixture fix = body.createFixture(fixtureDef);
+                fix.setUserData("foxBox_right");
+                fix.setSensor(true);
+
             }
         }
         else{
