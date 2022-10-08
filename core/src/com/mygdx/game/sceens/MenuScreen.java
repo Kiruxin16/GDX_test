@@ -25,6 +25,8 @@ public class MenuScreen implements Screen {
     private ShapeRenderer shapeRenderer;
     private final Music music;
     private final Sound sound;
+    private boolean startTimer;
+    private int timerCount;
 
 
 
@@ -32,6 +34,7 @@ public class MenuScreen implements Screen {
         this.game = game;
         batch= new SpriteBatch();
         texture = new Texture("FoxTitle.png");
+
 
         startRect = new Rectangle(0,0,texture.getWidth(),texture.getHeight());
         shapeRenderer  =new ShapeRenderer();
@@ -41,7 +44,7 @@ public class MenuScreen implements Screen {
         music.setVolume(0.4f);
         music.play();
 
-        sound =Gdx.audio.newSound(Gdx.files.internal("music/5d15220318063f8.mp3"));
+        sound =Gdx.audio.newSound(Gdx.files.internal("music/2181b19773767a7.mp3"));
 
 
 
@@ -68,13 +71,16 @@ public class MenuScreen implements Screen {
 
         if (Gdx.input.isButtonJustPressed(Input.Buttons.LEFT)) {
             if(startRect.contains(Gdx.input.getX(),Gdx.graphics.getHeight()- Gdx.input.getY())) {
-
+                sound.play();
+                startTimer=true;
+            }
+        }
+        if(startTimer){
+            timerCount++;
+            if(timerCount>=40){
 
                 dispose();
                 this.game.setScreen(new GameScreen(this.game));
-            }
-            else {
-                sound.play();
             }
         }
 

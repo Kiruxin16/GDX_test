@@ -64,8 +64,19 @@ public class PhysX {
         if (recMO.getName() != null) {
             body.createFixture(fixtureDef).setUserData(recMO.getName());
             if(recMO.getName().equals("foxBox")){
-                polygonShape.setAsBox(rect.width / 120, rect.height / 120,new Vector2(0,-rect.height/20),0);
+                polygonShape.setAsBox(rect.width / 50, rect.height /120,new Vector2(0,-rect.height/20),0);
                 body.createFixture(fixtureDef).setSensor(true);
+                polygonShape.setAsBox(rect.width / 150, rect.height / 20.1f, new Vector2(rect.width/20,0),0);
+                fixtureDef.friction=0;
+                body.createFixture(fixtureDef);
+                polygonShape.setAsBox(rect.width / 150, rect.height / 20.1f, new Vector2(-rect.width/20,0),0);
+                fixtureDef.friction=0;
+                body.createFixture(fixtureDef);
+                polygonShape.setAsBox(rect.width / 130, rect.height / 80f, new Vector2(rect.width/20+1,0),0);
+                Fixture fix = body.createFixture(fixtureDef);
+                fix.setUserData("foxBox_right");
+                fix.setSensor(true);
+
             }
         }
         else{
